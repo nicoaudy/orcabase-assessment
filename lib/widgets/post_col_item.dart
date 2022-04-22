@@ -1,9 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:html/parser.dart';
+import 'package:intl/intl.dart';
 
 class PostColItem extends StatelessWidget {
   final String title;
   final String excerpt;
+  final String publishDate;
   final VoidCallback onTap;
 
   const PostColItem({
@@ -11,6 +13,7 @@ class PostColItem extends StatelessWidget {
     required this.title,
     required this.excerpt,
     required this.onTap,
+    required this.publishDate,
   }) : super(key: key);
 
   @override
@@ -31,6 +34,10 @@ class PostColItem extends StatelessWidget {
             Text(
               title,
               style: const TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
+            ),
+            const SizedBox(height: 10),
+            Text(
+              "Published at: ${DateFormat('dd/MM/y hh:mm:ss').format(DateTime.parse(publishDate))}",
             ),
             const SizedBox(height: 20),
             Text(

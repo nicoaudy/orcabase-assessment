@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:orcabase/networking/wordpress_api.dart';
+import 'package:orcabase/pages/post_detail_page.dart';
 import 'package:orcabase/widgets/app_title.dart';
 import 'package:orcabase/widgets/link_option.dart';
 import 'package:orcabase/widgets/post_col_item.dart';
@@ -35,7 +36,7 @@ class _HomePageState extends State<HomePage> {
     });
   }
 
-  void _showModalSheet(String url) {
+  void _showModalSheet(String url, String id) {
     showModalBottomSheet(
       context: context,
       builder: (builder) {
@@ -51,7 +52,14 @@ class _HomePageState extends State<HomePage> {
                 icon: Icons.open_in_browser,
               ),
               LinkOption(
-                onTap: () {},
+                onTap: () {
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                      builder: (context) => PostDetailPage(postId: id),
+                    ),
+                  );
+                },
                 title: "Open in App",
                 icon: Icons.apps,
               ),
@@ -80,7 +88,10 @@ class _HomePageState extends State<HomePage> {
                 itemBuilder: (BuildContext context, int index) {
                   Map post = posts[index];
                   return GestureDetector(
-                    onTap: () => _showModalSheet(post['short_URL']),
+                    onTap: () => _showModalSheet(
+                      post['short_URL'],
+                      post['ID'].toString(),
+                    ),
                     child: PostRowItem(
                       title: post['title'],
                       url: post['short_URL'],
@@ -97,8 +108,12 @@ class _HomePageState extends State<HomePage> {
                   Map post = posts[index];
                   return PostColItem(
                     title: post['title'],
-                    onTap: () => _showModalSheet(post['short_URL']),
+                    onTap: () => _showModalSheet(
+                      post['short_URL'],
+                      post['ID'].toString(),
+                    ),
                     excerpt: post['excerpt'],
+                    publishDate: post['date'],
                   );
                 },
               ),
