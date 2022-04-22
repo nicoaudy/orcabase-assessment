@@ -1,13 +1,19 @@
 import 'package:flutter/material.dart';
+import 'package:url_launcher/url_launcher.dart';
 
 class PostRowItem extends StatelessWidget {
   final String title;
-  const PostRowItem({Key? key, required this.title}) : super(key: key);
+  final String url;
+  const PostRowItem({
+    Key? key,
+    required this.title,
+    required this.url,
+  }) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
     return GestureDetector(
-      onTap: () {},
+      onTap: () => launch(url),
       child: Padding(
         padding: const EdgeInsets.all(10.0),
         child: Stack(

@@ -59,7 +59,10 @@ class _HomePageState extends State<HomePage> {
                 itemCount: posts.length,
                 itemBuilder: (BuildContext context, int index) {
                   Map post = posts[index];
-                  return PostRowItem(title: post['title']);
+                  return PostRowItem(
+                    title: post['title'],
+                    url: post['short_URL'],
+                  );
                 },
               ),
             ),
@@ -71,7 +74,7 @@ class _HomePageState extends State<HomePage> {
                   Map post = posts[index];
                   return PostColItem(
                     title: post['title'],
-                    url: post['short_url'],
+                    url: post['short_URL'],
                     excerpt: post['excerpt'],
                   );
                 },
