@@ -37,7 +37,7 @@ class PostColItem extends StatelessWidget {
             ),
             const SizedBox(height: 10),
             Text(
-              "Published at: ${DateFormat('dd/MM/y hh:mm:ss').format(DateTime.parse(publishDate))}",
+              "Published at: ${DateFormat('dd/MM/y HH:mm:ss').format(DateTime.parse(publishDate))}",
             ),
             const SizedBox(height: 20),
             Text(
