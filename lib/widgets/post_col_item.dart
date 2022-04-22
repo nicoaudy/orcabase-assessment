@@ -1,17 +1,16 @@
 import 'package:flutter/material.dart';
 import 'package:html/parser.dart';
-import 'package:url_launcher/url_launcher.dart';
 
 class PostColItem extends StatelessWidget {
   final String title;
-  final String url;
   final String excerpt;
+  final VoidCallback onTap;
 
   const PostColItem({
     Key? key,
     required this.title,
-    required this.url,
     required this.excerpt,
+    required this.onTap,
   }) : super(key: key);
 
   @override
@@ -39,7 +38,7 @@ class PostColItem extends StatelessWidget {
               style: TextStyle(color: Colors.grey[600]),
             ),
             ElevatedButton(
-              onPressed: () => launch(url),
+              onPressed: onTap,
               child: const Text('Read more'),
               style: ElevatedButton.styleFrom(
                 primary: Colors.grey[800],

@@ -97,7 +97,7 @@ class _HomePageState extends State<HomePage> {
                   Map post = posts[index];
                   return PostColItem(
                     title: post['title'],
-                    url: post['short_URL'],
+                    onTap: () => _showModalSheet(post['short_URL']),
                     excerpt: post['excerpt'],
                   );
                 },
