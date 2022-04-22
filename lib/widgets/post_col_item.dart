@@ -33,6 +33,7 @@ class PostColItem extends StatelessWidget {
               title,
               style: const TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
             ),
+            const SizedBox(height: 20),
             Text(
               parse(excerpt).documentElement!.text,
               style: TextStyle(color: Colors.grey[600]),
