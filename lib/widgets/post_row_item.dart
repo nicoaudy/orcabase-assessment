@@ -48,11 +48,7 @@ class PostRowItem extends StatelessWidget {
                   padding: const EdgeInsets.all(10.0),
                   child: Text(
                     title,
-                    style: const TextStyle(
-                      color: Colors.white,
-                      fontSize: 18,
-                      fontWeight: FontWeight.bold,
-                    ),
+                    style: const TextStyle(fontSize: 16),
                   ),
                 ),
               ),
