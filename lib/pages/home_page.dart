@@ -155,14 +155,18 @@ class _HomePageState extends State<HomePage> {
             const SizedBox(height: 40),
             _searchBox(),
             query.isNotEmpty
-                ? ElevatedButton(
-                    onPressed: () {
-                      setState(() {
-                        query = '';
-                        setResults(query);
-                      });
-                    },
-                    child: const Text('Clear'))
+                ? Padding(
+                    padding: const EdgeInsets.all(8.0),
+                    child: ElevatedButton(
+                        onPressed: () {
+                          setState(() {
+                            _datepickerController.text = '';
+                            query = '';
+                            setResults(query);
+                          });
+                        },
+                        child: const Text('Clear')),
+                  )
                 : Container(),
             SizedBox(
               height: 200,
